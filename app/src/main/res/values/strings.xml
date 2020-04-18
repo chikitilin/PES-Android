@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">loginThreadAsyncTask</string>
+    <string name="debugtext">debugText</string>
+    <string name="threadButton">Login</string>
+    <string name="asyncTaskButton">Register</string>
+    <string name="editText2">debugText</string>
+</resources>
