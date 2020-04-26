@@ -36,8 +36,8 @@
 
     <EditText
         android:id="@+id/respuesta"
-        android:layout_width="218dp"
-        android:layout_height="49dp"
+        android:layout_width="330dp"
+        android:layout_height="85dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
@@ -51,8 +51,8 @@
 
     <EditText
         android:id="@+id/usuario"
-        android:layout_width="166dp"
-        android:layout_height="37dp"
+        android:layout_width="178dp"
+        android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
@@ -95,15 +95,15 @@
         android:text="Respuesta:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.567" />
+        app:layout_constraintVertical_bias="0.452" />
 
     <EditText
         android:id="@+id/contraseña"
-        android:layout_width="144dp"
-        android:layout_height="40dp"
+        android:layout_width="166dp"
+        android:layout_height="50dp"
         android:ems="10"
         android:inputType="textWebPassword"
         app:layout_constraintBottom_toBottomOf="parent"

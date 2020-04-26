@@ -1,6 +1,7 @@
 package pes.upc.loginthreadasynctask;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextClock;
+import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         else{
-            new Thread(new Runnable() {
+                new Thread(new Runnable() {
                 InputStream stream = null;
                 String str = "";
                 String result = null;
@@ -64,6 +67,13 @@ public class MainActivity extends AppCompatActivity {
                         conn.setDoInput(true);
                         conn.setDoOutput(true);
                         conn.connect();
+
+
+                        TextView usernameText=(TextView) findViewById(R.id.usuario);
+                        TextView password=(TextView) findViewById(R.id.contraseña);
+                        Singleton.getInstancia().usuarioSingleton= usernameText.getText().toString();
+                        Singleton.getInstancia().passwordSingleton= password.getText().toString();
+
 
                         String params = "user=" + usuario.getText().toString() + "&password=" + contraseña.getText().toString();
                         OutputStream os = conn.getOutputStream();
@@ -88,11 +98,19 @@ public class MainActivity extends AppCompatActivity {
                         }
                         result = sb.toString();
 
+
                         //Codi correcte
                         Log.i("Login", result);
                         handler.post(new Runnable() {
                             public void run() {
                                 respuesta.setText(result);
+                                if(result.contains("OK")){
+                                    Context context= getApplicationContext();
+                                    Intent intent= new Intent( context, SegundaActivity.class);
+                                    startActivity(intent);
+                                }else{
+                                    respuesta.setText("Login incorrecto");
+                                }
                             }
                         });
 
@@ -152,12 +170,9 @@ public class MainActivity extends AppCompatActivity {
                     sb.append(line);
                 }
                 result = sb.toString();
-
-
                 Log.i("Register", result);
-
-
                 return result;
+
 
             } catch(IOException e) {
                 return null;
